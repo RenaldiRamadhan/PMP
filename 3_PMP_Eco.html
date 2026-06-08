@@ -665,7 +665,9 @@ html { scroll-padding-top: 60px; }
 
 <!-- HERO -->
 <div class="hero">
-  <div class="eyebrow">One-Stop Examination Reference</div>
+  <div class="eyebrow">One-Stop Examination Reference
+  <div style="margin-top:.8rem"><button class="pmp-print-header-btn" onclick="window.print()">🖨️ Print / PDF</button></div>
+</div>
   <h1>PMP Master Revision Guide</h1>
   <p>Complete coverage of all 3 ECO Domains, Traditional &amp; Agile Mindsets, all 49 Processes, 10 Knowledge Areas, every formula, and quick-fire Q&amp;A — structured for AT (Above Target) in all domains.</p>
   <div class="pills">
@@ -2004,7 +2006,31 @@ function printSection(sectionId) {
   printWin.document.write('th{background:#f0f0f0;} ');
   printWin.document.write('*{-webkit-print-color-adjust:exact;print-color-adjust:exact;} ');
   printWin.document.write('.t-scroll{overflow:visible;} ');
-  printWin.document.write('</style></head><body>');
+  printWin.document.write('
+/* === PRINT BUTTON IN HEADER === */
+.pmp-print-header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: .75rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background .15s;
+}
+.pmp-print-header-btn:hover { background: #1d4ed8; }
+
+@media print {
+  .pmp-print-header-btn { display: none !important; }
+}
+</style></head><body>');
   printWin.document.write('<h2>' + title + '</h2>');
   printWin.document.write(section.innerHTML);
   printWin.document.write('</body></html>');
@@ -2013,8 +2039,5 @@ function printSection(sectionId) {
   setTimeout(function() { printWin.print(); }, 400);
 }
 </script>
-
-<!-- PRINT BUTTON -->
-<button id="pmp-print-btn" onclick="window.print()" title="Print / Save as PDF" style="position:fixed;bottom:70px;right:16px;z-index:99999;width:48px;height:48px;border-radius:50%;background:#2563eb;border:none;color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,99,235,.4);">🖨️</button>
 </body>
 </html>
