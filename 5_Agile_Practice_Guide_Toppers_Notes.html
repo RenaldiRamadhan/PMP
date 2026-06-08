@@ -2619,7 +2619,7 @@ html, body {
   /* Hide navigation, toggles, buttons */
   #sb, #tnav, #sidebar, .top-nav,
   #sb-toggle-btn, #btt, .btt, #pb, #pbx,
-  .print-btn, .print-all-btn, .nav-links,
+  .print-btn, .nav-links,
   .nav-header { display: none !important; }
 
   /* Reset layout */
@@ -2731,5 +2731,8 @@ function printSection(sectionId) {
   setTimeout(function() { printWin.print(); }, 400);
 }
 </script>
+
+<!-- PRINT BUTTON -->
+<button id="pmp-print-btn" onclick="window.print()" title="Print / Save as PDF" style="position:fixed;bottom:70px;right:16px;z-index:99999;width:48px;height:48px;border-radius:50%;background:#2563eb;border:none;color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,99,235,.4);">🖨️</button>
 </body>
 </html>
